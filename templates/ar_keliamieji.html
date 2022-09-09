@@ -8,4 +8,11 @@
     <p><input type="text" name="metai"/></p>
     <p><input type="submit" value="Įvesti"/></p>
 </form>
+{% if metai %}
+    {% if isleap(metai) %}
+    <p>Keliamieji</p>
+    {% else %}
+    <p>NEkeliamieji</p>
+    {% endif %}
+{% endif %}
 {% endblock %}
