@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from calendar import isleap
 import datetime
 
@@ -23,6 +23,16 @@ def keliamieji():
     # masyvas = [metai for metai in range(1900, 2100) if isleap(metai)]
     # return render_template('keliamieji.html', metai=masyvas)
     return render_template('keliamieji.html')
+
+
+@app.route("/ar_keliamieji", methods=['GET', 'POST'])
+def ar_keliamieji():
+    if request.method == "POST":
+        metai = int(request.form['metai'])
+        ar_keliamieji = isleap(metai)
+        return render_template('atsakymas.html', ar_keliamieji=ar_keliamieji)
+    return render_template('ar_keliamieji.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
