@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Keliamieji{% endblock %}
+
+{% block content %}
+<h1>Keliamieji nuo 1900 iki 2100:</h1>
+<ul>
+    {% for metai in metai %}
+    <li>{{metai}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
