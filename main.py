@@ -1,7 +1,14 @@
 from flask import Flask, render_template
 from calendar import isleap
+import datetime
 
 app = Flask(__name__)
+
+@app.context_processor
+def add_imports():
+    masyvas = {"isleap": isleap,
+               "datetime": datetime}
+    return masyvas
 
 @app.route("/")
 def home():
@@ -15,7 +22,7 @@ def address(vardas):
 def keliamieji():
     # masyvas = [metai for metai in range(1900, 2100) if isleap(metai)]
     # return render_template('keliamieji.html', metai=masyvas)
-    return render_template('keliamieji.html', isleap=isleap)
+    return render_template('keliamieji.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
