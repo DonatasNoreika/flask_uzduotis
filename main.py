@@ -13,8 +13,9 @@ def address(vardas):
 
 @app.route("/keliamieji")
 def keliamieji():
-    masyvas = [metai for metai in range(1900, 2100) if isleap(metai)]
-    return render_template('keliamieji.html', metai=masyvas)
+    # masyvas = [metai for metai in range(1900, 2100) if isleap(metai)]
+    # return render_template('keliamieji.html', metai=masyvas)
+    return render_template('keliamieji.html', isleap=isleap)
 
 if __name__ == "__main__":
     app.run(debug=True)
