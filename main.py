@@ -27,10 +27,9 @@ def keliamieji():
 
 @app.route("/ar_keliamieji", methods=['GET', 'POST'])
 def ar_keliamieji():
+    metai = False
     if request.method == "POST":
         metai = int(request.form['metai'])
-    else:
-        metai = False
     return render_template('ar_keliamieji.html', metai=metai)
 
 
