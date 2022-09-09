@@ -29,8 +29,9 @@ def keliamieji():
 def ar_keliamieji():
     if request.method == "POST":
         metai = int(request.form['metai'])
-        ar_keliamieji = isleap(metai)
-        return render_template('atsakymas.html', ar_keliamieji=ar_keliamieji)
+        # ar_keliamieji = isleap(metai)
+        # return render_template('atsakymas.html', ar_keliamieji=ar_keliamieji)
+        return render_template('atsakymas.html', metai=metai)
     return render_template('ar_keliamieji.html')
 
 
